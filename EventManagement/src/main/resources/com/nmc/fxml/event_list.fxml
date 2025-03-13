@@ -13,9 +13,6 @@
 
 <VBox prefHeight="1000" prefWidth="1200" spacing="10" stylesheets="@../css/event_list.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nmc.controllers.EventListController">
     <StackPane styleClass="title-label">
-        <HBox alignment="CENTER_LEFT">
-            <Button fx:id="btnBack" text="←" onAction="#handleBack" styleClass="icon-button"/>
-        </HBox>
         <Label alignment="CENTER"  text="Danh sách sự kiện" textAlignment="CENTER"/>
     </StackPane>
 

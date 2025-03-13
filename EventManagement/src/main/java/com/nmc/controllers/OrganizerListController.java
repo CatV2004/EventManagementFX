@@ -91,19 +91,6 @@ public class OrganizerListController implements Initializable {
         }
     }
 
-    @FXML
-    private void handleBack(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/nmc/fxml/home_content.fxml"));
-            Parent homeContent = loader.load();
-
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            BorderPane rootPane = (BorderPane) stage.getScene().getRoot();
-            rootPane.setCenter(homeContent);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     @FXML
     private void handleAddOrganizer(ActionEvent event) {

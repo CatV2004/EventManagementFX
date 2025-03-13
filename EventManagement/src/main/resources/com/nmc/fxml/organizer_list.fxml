@@ -8,9 +8,6 @@
       fx:controller="com.nmc.controllers.OrganizerListController">
 
     <StackPane styleClass="title-label">
-        <HBox alignment="CENTER_LEFT">
-            <Button fx:id="btnBack" text="←" onAction="#handleBack" styleClass="icon-button"/>
-        </HBox>
         <Label alignment="CENTER" text="Danh sách tổ chức" textAlignment="CENTER"/>
     </StackPane>
 

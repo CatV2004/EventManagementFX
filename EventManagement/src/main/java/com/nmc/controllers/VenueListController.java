@@ -90,25 +90,7 @@ public class VenueListController implements Initializable {
             Logger.getLogger(VenueListController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
-    @FXML
-    private void handleBack(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/nmc/fxml/home_content.fxml"));
-            Parent homeContent = loader.load();
-
-            // Lấy BorderPane từ Stage hiện tại
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            BorderPane rootPane = (BorderPane) stage.getScene().getRoot();
-
-            // Cập nhật nội dung của <center> mà không thay đổi Scene
-            rootPane.setCenter(homeContent);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
+    
     @FXML
     private void handleAddVenue(ActionEvent event) {
         try {
@@ -132,4 +114,3 @@ public class VenueListController implements Initializable {
         alert.showAndWait();
     }
 }
-

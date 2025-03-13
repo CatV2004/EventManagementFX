@@ -28,3 +28,10 @@
 #sidebar Button:hover {
     -fx-background-color: #1ABC9C;
 }
+
+#sidebar Button.selected {
+    -fx-background-color: #1ABC9C;
+    -fx-font-weight: bold;
+    -fx-border-color: #ffffff;
+    -fx-border-width: 2px;
+}

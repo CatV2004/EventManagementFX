@@ -19,10 +19,10 @@
 
     <left>
         <VBox id="sidebar" alignment="TOP_LEFT" spacing="10">
-            <Button onAction="#handleHome" text="Trang chủ" />
-            <Button onAction="#handleMyEvents" text="Quản lý sự kiện" />
-            <Button onAction="#handleVenue" text="Quản lý địa điểm" />
-            <Button onAction="#handleOrganizer" text="Quản lý ban tổ chức" />
+            <Button fx:id = "btnHome" onAction="#handleHome" text="Trang chủ" />
+            <Button fx:id = "btnMyEvents" onAction="#handleMyEvents" text="Quản lý sự kiện" />
+            <Button fx:id = "btnVenue" onAction="#handleVenue" text="Quản lý địa điểm" />
+            <Button fx:id = "btnOrganizer" onAction="#handleOrganizer" text="Quản lý ban tổ chức" />
             <Button onAction="#handleLogout" text="Đăng xuất" />
         </VBox>
     </left>

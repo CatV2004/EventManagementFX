@@ -11,9 +11,6 @@
       fx:controller="com.nmc.controllers.VenueListController">
 
     <StackPane styleClass="title-label">
-        <HBox alignment="CENTER_LEFT">
-            <Button fx:id="btnBack" text="←" onAction="#handleBack" styleClass="icon-button"/>
-        </HBox>
         <Label alignment="CENTER" text="Danh sách địa điểm" textAlignment="CENTER"/>
     </StackPane>
 
