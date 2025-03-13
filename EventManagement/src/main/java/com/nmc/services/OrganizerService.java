@@ -21,11 +21,9 @@ public class OrganizerService {
     public List<Organizer> getAllOrganizers() throws SQLException {
         List<Organizer> organizers = new ArrayList<>();
         String query = "SELECT * FROM organizers";
-        
-        try (Connection conn = JdbcUtils.getConn();
-             PreparedStatement stmt = conn.prepareStatement(query);
-             ResultSet rs = stmt.executeQuery()) {
-            
+
+        try (Connection conn = JdbcUtils.getConn(); PreparedStatement stmt = conn.prepareStatement(query); ResultSet rs = stmt.executeQuery()) {
+
             while (rs.next()) {
                 Organizer organizer = new Organizer();
                 organizer.setId(rs.getInt("id"));
@@ -33,19 +31,18 @@ public class OrganizerService {
                 organizer.setContactPerson(rs.getString("contact_person"));
                 organizer.setEmail(rs.getString("email"));
                 organizer.setPhone(rs.getString("phone"));
-                
+
                 organizers.add(organizer);
             }
         }
-        
+
         return organizers;
     }
-    
+
     public boolean addOrganizer(Organizer organizer) throws SQLException {
         String query = "INSERT INTO organizers (name, contact_person, email, phone) VALUES (?, ?, ?, ?)";
 
-        try (Connection conn = JdbcUtils.getConn();
-             PreparedStatement stmt = conn.prepareStatement(query)) {
+        try (Connection conn = JdbcUtils.getConn(); PreparedStatement stmt = conn.prepareStatement(query)) {
 
             stmt.setString(1, organizer.getName());
             stmt.setString(2, organizer.getContactPerson());
@@ -55,4 +52,29 @@ public class OrganizerService {
             return stmt.executeUpdate() > 0;
         }
     }
+
+    public List<Organizer> getOrganizersByKeyword(String keyword) throws SQLException {
+        List<Organizer> organizers = new ArrayList<>();
+        String query = "SELECT * FROM organizers WHERE name LIKE ? OR contact_person LIKE ?";
+
+        try (Connection conn = JdbcUtils.getConn(); PreparedStatement stmt = conn.prepareStatement(query)) {
+
+            stmt.setString(1, "%" + keyword + "%");
+            stmt.setString(2, "%" + keyword + "%");
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                while (rs.next()) {
+                    Organizer organizer = new Organizer();
+                    organizer.setId(rs.getInt("id"));
+                    organizer.setName(rs.getString("name"));
+                    organizer.setContactPerson(rs.getString("contact_person"));
+                    organizer.setEmail(rs.getString("email"));
+                    organizer.setPhone(rs.getString("phone"));
+                    organizers.add(organizer);
+                }
+            }
+        }
+        return organizers;
+    }
+
 }

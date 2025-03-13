@@ -1,1 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox prefHeight="600" prefWidth="800" spacing="10"
+      stylesheets="@../css/event_list.css"
+      xmlns="http://javafx.com/javafx/23.0.1"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.nmc.controllers.OrganizerListController">
 
+    <StackPane styleClass="title-label">
+        <HBox alignment="CENTER_LEFT">
+            <Button fx:id="btnBack" text="←" onAction="#handleBack" styleClass="icon-button"/>
+        </HBox>
+        <Label alignment="CENTER" text="Danh sách tổ chức" textAlignment="CENTER"/>
+    </StackPane>
+
+    <HBox alignment="CENTER_LEFT" spacing="10" styleClass="search-bar">
+        <TextField fx:id="searchField" promptText="Nhập tên tổ chức..." />
+        <Button fx:id="btnSearch" text="Tìm kiếm" />
+    </HBox>
+
+    <TableView fx:id="organizerTable" styleClass="organizer-table">
+        <columns>
+            <TableColumn fx:id="colId" prefWidth="50" text="ID" />
+            <TableColumn fx:id="colName" prefWidth="200" text="Tên tổ chức" />
+            <TableColumn fx:id="colContactPerson" prefWidth="200" text="Người liên hệ" />
+            <TableColumn fx:id="colEmail" prefWidth="200" text="Email" />
+            <TableColumn fx:id="colPhone" prefWidth="150" text="Số điện thoại" />
+        </columns>
+    </TableView>
+
+    <HBox alignment="CENTER" spacing="10" styleClass="button-bar">
+        <Button fx:id="btnAdd" text="Thêm tổ chức" onAction="#handleAddOrganizer"/>
+        <Button fx:id="btnEdit" text="Sửa" onAction="#handleEditOrganizer"/>
+        <Button fx:id="btnDelete" text="Xóa" onAction="#handleDeleteOrganizer"/>
+    </HBox>
+
+</VBox>

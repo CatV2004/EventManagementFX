@@ -124,51 +124,6 @@ public class VenueListController implements Initializable {
         }
     }
 
-//    @FXML
-//    private void handleEditVenue(ActionEvent event) {
-//        Venue selectedVenue = venueTable.getSelectionModel().getSelectedItem();
-//        if (selectedVenue == null) {
-//            showAlert("Vui lòng chọn một địa điểm để sửa.");
-//            return;
-//        }
-//
-//        try {
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/nmc/fxml/venue_form.fxml"));
-//            Parent venueForm = loader.load();
-//
-//            VenueFormController controller = loader.getController();
-//            controller.setVenue(selectedVenue); // Truyền dữ liệu cho form
-//
-//            Stage stage = new Stage();
-//            stage.setScene(new Scene(venueForm));
-//            stage.setTitle("Chỉnh sửa địa điểm");
-//            stage.show();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
-    @FXML
-    private void handleDeleteVenue(ActionEvent event) {
-        Venue selectedVenue = venueTable.getSelectionModel().getSelectedItem();
-        if (selectedVenue == null) {
-            showAlert("Vui lòng chọn một địa điểm để xóa.");
-            return;
-        }
-
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Bạn có chắc chắn muốn xóa địa điểm này?", ButtonType.YES, ButtonType.NO);
-        alert.showAndWait().ifPresent(response -> {
-            if (response == ButtonType.YES) {
-                try {
-                    venueService.deleteVenue(selectedVenue.getId());
-                } catch (SQLException ex) {
-                    Logger.getLogger(VenueListController.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                loadVenues(null); // Cập nhật lại danh sách
-            }
-        });
-    }
-
     private void showAlert(String message) {
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Thông báo");
