@@ -1,0 +1,65 @@
+/* Định dạng toàn bộ cửa sổ */
+.root {
+    -fx-background-color: linear-gradient(to bottom, #4A90E2, #2A65C0);
+    -fx-font-family: "Arial";
+}
+
+/* Tùy chỉnh GridPane (Form) */
+.grid-pane {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-padding: 20px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0, 0, 5);
+}
+
+/* Tiêu đề */
+.label-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+
+/* Nhãn của các ô nhập */
+.label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #333;
+}
+
+/* Ô nhập liệu */
+.text-field, .password-field {
+    -fx-pref-width: 200px;
+    -fx-padding: 8px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-border-color: #ccc;
+    -fx-background-color: #f9f9f9;
+    -fx-font-size: 14px;
+}
+
+/* Khi người dùng focus vào ô nhập */
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #4A90E2;
+    -fx-background-color: white;
+}
+
+/* Nút đăng nhập */
+.button {
+    -fx-background-color: #4A90E2;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 20px;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-cursor: hand;
+}
+
+/* Hiệu ứng khi di chuột vào nút */
+.button:hover {
+    -fx-background-color: #357ABD;
+}
+
+/* Hiệu ứng khi nhấn nút */
+.button:pressed {
+    -fx-background-color: #2A65C0;
+}

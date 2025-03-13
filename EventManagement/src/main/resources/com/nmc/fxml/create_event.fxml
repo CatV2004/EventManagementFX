@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane stylesheets="@../css/create_event.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nmc.controllers.CreateEventController">
+    <!-- Tiêu đề -->
+    <top>
+        <Label id="titleLabel" maxWidth="1.7976931348623157E308" text="Tạo sự kiện" />
+    </top>
+
+    <!-- Nội dung chính -->
+    <center>
+        <VBox id="formContainer" spacing="15">
+            <TextField fx:id="eventName" promptText="Tên sự kiện" />
+            <TextArea fx:id="eventDescription" promptText="Mô tả sự kiện" wrapText="true" />
+
+            <!-- Chọn địa điểm và Chọn nhà tổ chức trên cùng 1 hàng -->
+            <HBox id="venueOrganizerContainer" spacing="10">
+                <VBox spacing="5">
+                    <Label text="Chọn địa điểm" />
+                    
+                    <HBox id="venueContainer" spacing="5">
+                        <ComboBox fx:id="venueSelection" promptText="Chọn địa điểm" />
+                        <Button onAction="#handleAddVenue" text="+" />
+                    </HBox>
+
+                </VBox>
+                
+               
+                
+                <VBox spacing="5">
+                    <Label text="Chọn nhà tổ chức" />
+                    
+                    <HBox id="organizerContainer" spacing="5">
+                        <ComboBox fx:id="organizerSelection" promptText="Chọn nhà tổ chức" />
+                        <Button onAction="#handleAddOrganizer" text="+" />
+                    </HBox>
+
+                    <HBox.margin>
+                        <Insets left="50.0" />
+                    </HBox.margin>
+                </VBox>
+                
+            </HBox>
+            
+            <HBox alignment="CENTER" spacing="5">
+                <Region HBox.hgrow="ALWAYS" />
+    
+                <VBox alignment="CENTER">
+                    <Label text="Số lượng khách tối đa" textAlignment="CENTER">
+                  <padding>
+                     <Insets bottom="10.0" />
+                  </padding></Label>
+                    <Spinner fx:id="maxGuests" promptText="Số lượng khách tối đa" />
+                </VBox>
+
+                <Region HBox.hgrow="ALWAYS" />
+            <VBox.margin>
+               <Insets top="-10.0" />
+            </VBox.margin>
+            </HBox>
+
+
+
+            <HBox spacing="10">
+                <DatePicker fx:id="startDate" promptText="Ngày bắt đầu" />
+                <DatePicker fx:id="endDate" promptText="Ngày kết thúc" />
+            </HBox>
+
+        </VBox>
+    </center>
+
+    <!-- Nút thao tác -->
+    <bottom>
+        <HBox id="buttonContainer" spacing="10">
+            <Button id="cancelButton" fx:id="btnCancel" onAction="#handleCancel" text="Hủy" />
+            <Button id="saveButton" fx:id="btnSave" text="Lưu" />
+        </HBox>
+    </bottom>
+</BorderPane>

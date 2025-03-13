@@ -1,0 +1,148 @@
+/* Định dạng toàn bộ giao diện */
+.root {
+    -fx-font-family: "Arial";
+    -fx-background-color: #ECEFF1; /* Màu nền nhẹ nhàng */
+}
+
+/* Tiêu đề */
+.title-label {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: black;
+    -fx-padding: 10px;
+    -fx-background-color: #d3e3fd;
+    -fx-alignment: center;
+    -fx-text-alignment: center;
+}
+
+/* Thanh tìm kiếm */
+.search-bar {
+    -fx-background-color: #ffffff;
+    -fx-padding: 10px;
+    -fx-spacing: 10;
+    -fx-background-radius: 8px;
+    -fx-border-color: #B0BEC5;
+    -fx-border-radius: 8px;
+}
+
+/* Ô nhập tìm kiếm */
+#searchField {
+    -fx-pref-width: 300px;
+    -fx-font-size: 14px;
+    -fx-padding: 8px;
+    -fx-border-color: #B0BEC5;
+    -fx-border-radius: 5px;
+}
+
+/* Nút tìm kiếm */
+#btnSearch {
+    -fx-background-color: #1ABC9C;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 16px;
+    -fx-background-radius: 5px;
+}
+
+#btnSearch:hover {
+    -fx-background-color: #16A085;
+}
+
+/* Bảng sự kiện */
+.event-table {
+    -fx-background-color: white;
+    -fx-border-color: #B0BEC5;
+    -fx-border-radius: 5px;
+    -fx-padding: 5px;
+}
+
+/* Cột trong bảng */
+.table-column {
+    -fx-alignment: CENTER;
+    -fx-font-size: 14px;
+    -fx-text-fill: #2C3E50;
+}
+
+/* Thanh tiêu đề bảng */
+.table-view .column-header-background {
+    -fx-background-color: #4CAF50;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+/* Thanh cuộn của bảng */
+.table-view .scroll-bar {
+    -fx-background-color: #f4f4f4;
+}
+
+/* Thanh công cụ (nút Thêm, Sửa, Xóa) */
+.button-bar {
+    -fx-padding: 10px;
+    -fx-spacing: 10;
+    -fx-alignment: center;
+}
+
+/* Nút thao tác */
+#btnAdd, #btnEdit, #btnDelete {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 16px;
+    -fx-background-radius: 5px;
+    -fx-text-fill: white;
+}
+
+/* Màu nền cho các nút */
+#btnAdd {
+    -fx-background-color: #2C3E50;
+}
+
+#btnEdit {
+    -fx-background-color: #34495E;
+}
+
+#btnDelete {
+    -fx-background-color: #E74C3C;
+}
+
+/* Hiệu ứng hover */
+#btnAdd:hover {
+    -fx-background-color: #1ABC9C;
+}
+
+#btnEdit:hover {
+    -fx-background-color: #1ABC9C;
+}
+
+#btnDelete:hover {
+    -fx-background-color: #C0392B;
+}
+
+.table-view .column-header {
+    -fx-alignment: CENTER; /* Căn giữa tiêu đề */
+}
+
+.table-cell {
+    -fx-alignment: CENTER; /* Căn giữa nội dung */
+}
+
+.icon-button {
+    -fx-background-color: transparent;
+    -fx-padding: 5;
+    -fx-font-size: 18px;
+    -fx-text-fill: #333;
+}
+
+.icon-button:hover {
+    -fx-text-fill: #007BFF;
+}
+
+.title-label {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #222;
+}
+

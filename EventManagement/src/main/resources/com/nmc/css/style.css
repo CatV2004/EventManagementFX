@@ -1,0 +1,30 @@
+
+#titleLabel {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+    -fx-padding: 10px;
+    -fx-background-color: #4CAF50;
+    -fx-alignment: center;
+    -fx-min-height: 50px;
+    -fx-max-height: 50px;
+    -fx-pref-width: 100%; /* Mở rộng toàn bộ chiều ngang */
+}
+
+#sidebar {
+    -fx-background-color: #2C3E50;
+    -fx-padding: 10px;
+    -fx-min-width: 200px;
+}
+
+#sidebar Button {
+    -fx-background-color: #34495E;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-pref-width: 180px;
+    -fx-padding: 10px;
+}
+
+#sidebar Button:hover {
+    -fx-background-color: #1ABC9C;
+}

@@ -1,0 +1,71 @@
+/* Tùy chỉnh container chính */
+#formContainer {
+    -fx-padding: 20px;
+    -fx-alignment: center;
+}
+
+/* Tiêu đề */
+#titleLabel {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-background-color: #4CAF50;
+    -fx-padding: 10px;
+    -fx-alignment: center;
+    -fx-min-height: 40px;
+}
+
+/* Các input field */
+TextField, TextArea, ComboBox, DatePicker {
+    -fx-pref-width: 300px;
+    -fx-padding: 8px;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 5px;
+}
+
+/* Định dạng container chứa Chọn địa điểm & Chọn nhà tổ chức */
+#venueOrganizerContainer {
+    -fx-spacing: 10px;
+    -fx-alignment: center;
+}
+
+#venueOrganizerContainer ComboBox {
+    -fx-pref-width: 150px; /* Giảm kích thước để vừa trên 1 hàng */
+}
+
+/* Hộp chứa nút */
+#buttonContainer {
+    -fx-padding: 10px;
+    -fx-alignment: center;
+}
+
+/* Nút lưu */
+#saveButton {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-border-radius: 5px;
+}
+
+#saveButton:hover {
+    -fx-background-color: #388E3C;
+}
+
+/* Nút hủy */
+#cancelButton {
+    -fx-background-color: #F44336;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-border-radius: 5px;
+}
+
+#cancelButton:hover {
+    -fx-background-color: #D32F2F;
+}
+
+HBox {
+    -fx-alignment: center-left;
+    -fx-padding: 10px 0;
+}

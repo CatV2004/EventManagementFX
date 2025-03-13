@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="rootPane" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nmc.controllers.BaseController">
+
+    <top>
+        <VBox alignment="CENTER" prefWidth="600">
+            <Label id="titleLabel" alignment="CENTER" maxWidth="Infinity" text="Hệ thống quản lý tổ chức sự kiện" textAlignment="CENTER" />
+        </VBox>
+    </top>
+
+    <center>
+            <fx:include source="home_content.fxml" />
+    </center>
+
+    <left>
+        <VBox id="sidebar" alignment="TOP_LEFT" spacing="10">
+            <Button onAction="#handleHome" text="Trang chủ" />
+            <Button onAction="#handleMyEvents" text="Quản lý sự kiện" />
+            <Button onAction="#handleVenue" text="Quản lý địa điểm" />
+            <Button onAction="#handleOrganizer" text="Quản lý ban tổ chức" />
+            <Button onAction="#handleLogout" text="Đăng xuất" />
+        </VBox>
+    </left>
+
+</BorderPane>
