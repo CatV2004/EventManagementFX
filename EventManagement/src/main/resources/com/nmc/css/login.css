@@ -42,6 +42,20 @@
     -fx-background-color: white;
 }
 
+/* ComboBox chọn vai trò */
+.combo-box {
+    -fx-pref-width: 200px;
+    -fx-padding: 8px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-border-color: #ccc;
+    -fx-background-color: #f9f9f9;
+    -fx-font-size: 14px;
+}
+.combo-box:focused {
+    -fx-border-color: #4A90E2;
+}
+
 /* Nút đăng nhập */
 .button {
     -fx-background-color: #4A90E2;
@@ -63,3 +77,27 @@
 .button:pressed {
     -fx-background-color: #2A65C0;
 }
+
+/* Radio Button */
+.radio-button {
+    -fx-font-size: 12px; /* Giảm kích thước chữ */
+    -fx-text-fill: #333;
+    -fx-padding: 3px 5px; /* Giảm padding để nhỏ gọn hơn */
+}
+
+/* Khi được chọn */
+.radio-button:selected {
+    -fx-font-weight: bold;
+}
+
+/* Căn giữa theo chiều dọc */
+.hbox {
+    -fx-alignment: center;
+}
+
+/* Điều chỉnh VBox chứa RadioButton */
+.vbox {
+    -fx-alignment: center;
+}
+
+
