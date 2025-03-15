@@ -8,14 +8,16 @@ public class User {
     private String lastName;
     private String email;
     private String phone;
+    private String userName;
     private String passwordHash;
-    private String role; // "Admin", "Staff"
+    private String role; // "Admin", "Attendee"
 
-    public User(String firstName, String lastName, String email, String phone, String passwordHash, String role) {
+    public User(String firstName, String lastName, String email, String phone, String userName, String passwordHash, String role) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.phone = phone;
+        this.userName = userName;
         this.passwordHash = passwordHash;
         this.role = role;
     }
@@ -75,6 +77,16 @@ public class User {
     public void setRole(String role) {
         this.role = role;
     }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+    
+    
 
     
 }

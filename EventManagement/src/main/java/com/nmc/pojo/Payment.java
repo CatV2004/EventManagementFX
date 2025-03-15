@@ -12,16 +12,14 @@ import java.util.Date;
 
 public class Payment {
     private int id;
-    private int participantId;
-    private int eventId;
+    private int registrationId;
     private double amount;
     private String status; // "Paid": Tiền thanh toán,
                             // "Refunded": Đã hoàn lại
     private Date paymentDate;
 
-    public Payment(int participantId, int eventId, double amount, String status, Date paymentDate) {
-        this.participantId = participantId;
-        this.eventId = eventId;
+    public Payment(int registrationId, double amount, String status, Date paymentDate) {
+        this.registrationId = registrationId;
         this.amount = amount;
         this.status = status;
         this.paymentDate = paymentDate;
@@ -35,20 +33,12 @@ public class Payment {
         this.id = id;
     }
 
-    public int getParticipantId() {
-        return participantId;
+    public int getRegistrationId() {
+        return registrationId;
     }
 
-    public void setParticipantId(int participantId) {
-        this.participantId = participantId;
-    }
-
-    public int getEventId() {
-        return eventId;
-    }
-
-    public void setEventId(int eventId) {
-        this.eventId = eventId;
+    public void setRegistrationId(int registrationId) {
+        this.registrationId = registrationId;
     }
 
     public double getAmount() {

@@ -13,15 +13,15 @@ import java.util.Date;
 public class Notification {
     private int id;
     private int eventId;
-    private int participantId;
+    private int attendeeId;
     private String message;
     private Date sendTime;
     private String status; // "Unread": Chưa đọc,
                             //"Read": Đã đọc
 
-    public Notification(int eventId, int participantId, String message, Date sendTime, String status) {
+    public Notification(int eventId, int attendeeId, String message, Date sendTime, String status) {
         this.eventId = eventId;
-        this.participantId = participantId;
+        this.attendeeId = attendeeId;
         this.message = message;
         this.sendTime = sendTime;
         this.status = status;
@@ -43,12 +43,12 @@ public class Notification {
         this.eventId = eventId;
     }
 
-    public int getparticipantId() {
-        return participantId;
+    public int getAttendeeId() {
+        return attendeeId;
     }
 
-    public void setParticipantId(int participantId) {
-        this.participantId = participantId;
+    public void setAttendeeId(int attendeeId) {
+        this.attendeeId = attendeeId;
     }
 
     public String getMessage() {
