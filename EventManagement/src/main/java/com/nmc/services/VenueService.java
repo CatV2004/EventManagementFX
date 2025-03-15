@@ -1,73 +1,86 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.nmc.services;
 
 import com.nmc.configs.JdbcUtils;
 import com.nmc.pojo.Venue;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
-/**
- *
- * @author FPTSHOP
- */
 public class VenueService {
 
-    public static Venue getVenueById(int venueId) throws SQLException {
-        Connection conn = JdbcUtils.getConn();
+    public Optional<Venue> getVenueById(int venueId) throws SQLException {
         String sql = "SELECT * FROM venues WHERE id = ?";
-        PreparedStatement stmt = conn.prepareStatement(sql);
-        stmt.setInt(1, venueId);
 
-        ResultSet rs = stmt.executeQuery();
-        if (rs.next()) {
-            return new Venue(rs.getString("name"), rs.getString("location"), rs.getInt("capacity"));
+        try (Connection conn = JdbcUtils.getConn();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setInt(1, venueId);
+            
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    return Optional.of(mapVenue(rs));
+                }
+            }
         }
+        return Optional.empty();
+    }
 
-        return null; // Nếu không tìm thấy
+    public Optional<Venue> getVenueByName(String name) throws SQLException {
+        String sql = "SELECT * FROM venues WHERE name = ?";
+
+        try (Connection conn = JdbcUtils.getConn();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, name);
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    return Optional.of(mapVenue(rs));
+                }
+            }
+        }
+        return Optional.empty();
     }
 
     public List<Venue> getAllVenues() throws SQLException {
         List<Venue> venues = new ArrayList<>();
         String query = "SELECT * FROM venues";
 
-        try (Connection conn = JdbcUtils.getConn(); PreparedStatement stmt = conn.prepareStatement(query); ResultSet rs = stmt.executeQuery()) {
+        try (Connection conn = JdbcUtils.getConn();
+             PreparedStatement stmt = conn.prepareStatement(query);
+             ResultSet rs = stmt.executeQuery()) {
 
             while (rs.next()) {
-                Venue venue = new Venue();
-                venue.setId(rs.getInt("id"));
-                venue.setName(rs.getString("name"));
-                venue.setLocation(rs.getString("location"));
-                venue.setCapacity(rs.getInt("capacity"));
-
-                venues.add(venue);
+                venues.add(mapVenue(rs));
             }
         }
-
         return venues;
     }
-    
-    
+
     public boolean addVenue(Venue venue) throws SQLException {
         String query = "INSERT INTO venues (name, location, capacity) VALUES (?, ?, ?)";
 
         try (Connection conn = JdbcUtils.getConn();
-             PreparedStatement stmt = conn.prepareStatement(query)) {
+             PreparedStatement stmt = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
 
             stmt.setString(1, venue.getName());
             stmt.setString(2, venue.getLocation());
             stmt.setInt(3, venue.getCapacity());
 
-            return stmt.executeUpdate() > 0;
+            int affectedRows = stmt.executeUpdate();
+            if (affectedRows > 0) {
+                try (ResultSet generatedKeys = stmt.getGeneratedKeys()) {
+                    if (generatedKeys.next()) {
+                        venue.setId(generatedKeys.getInt(1));
+                    }
+                }
+            }
+            return affectedRows > 0;
         }
     }
-    
+
     public boolean updateVenue(Venue venue) throws SQLException {
         String query = "UPDATE venues SET name = ?, location = ?, capacity = ? WHERE id = ?";
 
@@ -106,15 +119,19 @@ public class VenueService {
 
             try (ResultSet rs = stmt.executeQuery()) {
                 while (rs.next()) {
-                    Venue venue = new Venue();
-                    venue.setId(rs.getInt("id"));
-                    venue.setName(rs.getString("name"));
-                    venue.setLocation(rs.getString("location"));
-                    venue.setCapacity(rs.getInt("capacity"));
-                    venues.add(venue);
+                    venues.add(mapVenue(rs));
                 }
             }
         }
         return venues;
+    }
+
+    private Venue mapVenue(ResultSet rs) throws SQLException {
+        Venue venue = new Venue();
+        venue.setId(rs.getInt("id"));
+        venue.setName(rs.getString("name"));
+        venue.setLocation(rs.getString("location"));
+        venue.setCapacity(rs.getInt("capacity"));
+        return venue;
     }
 }

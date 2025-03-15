@@ -1,0 +1,55 @@
+/* styles.css */
+.root {
+    -fx-font-family: "Arial";
+    -fx-background-color: #f4f4f4;
+}
+
+.label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #333;
+}
+
+.text-field {
+    -fx-font-size: 14px;
+    -fx-pref-width: 250px;
+    -fx-padding: 5px;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+.text-field:focused {
+    -fx-border-color: #0078D7;
+    -fx-border-width: 2px;
+}
+
+.button {
+    -fx-font-size: 14px;
+    -fx-padding: 8px 15px;
+    -fx-background-color: #0078D7;
+    -fx-text-fill: white;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #005a9e;
+}
+
+.button:pressed {
+    -fx-background-color: #004080;
+}
+
+.button-cancel {
+    -fx-background-color: #d9534f;
+}
+
+.button-cancel:hover {
+    -fx-background-color: #c9302c;
+}
+
+.hbox {
+    -fx-alignment: CENTER_RIGHT;
+    -fx-padding: 10px 0px;
+}

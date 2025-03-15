@@ -24,18 +24,20 @@
 
     <TableView fx:id="eventTable" styleClass="event-table">
         <columns>
-            <TableColumn fx:id="colId" prefWidth="50" text="ID" />
-            <TableColumn fx:id="colName" prefWidth="200" text="Tên sự kiện" />
-            <TableColumn fx:id="colVenue" prefWidth="150" text="Địa điểm" />
-            <TableColumn fx:id="colStartTime" prefWidth="150" text="Thời gian bắt đầu" />
-            <TableColumn fx:id="colEndTime" prefWidth="150" text="Thời gian kết thúc" />
-            <TableColumn fx:id="colStatus" prefWidth="100" text="Trạng thái" />
+            <TableColumn fx:id="colId" text="ID" />
+            <TableColumn fx:id="colName" text="Tên sự kiện" />
+            <TableColumn fx:id="colVenue" text="Địa điểm" />
+            <TableColumn fx:id="colOrganizer" text="Nhà tổ chức" />
+            <TableColumn fx:id="colStartTime" text="Thời gian bắt đầu" />
+            <TableColumn fx:id="colEndTime" text="Thời gian kết thúc" />
+            <TableColumn fx:id="colDes" text="Mô tả" />
+            <TableColumn fx:id="colStatus" text="Trạng thái" />
         </columns>
     </TableView>
 
     <HBox alignment="CENTER" spacing="10" styleClass="button-bar">
         <Button fx:id="btnAdd" text="Thêm sự kiện" onAction="#handleAddEvent"/>
-        <Button fx:id="btnEdit" text="Sửa" />
-        <Button fx:id="btnDelete" text="Xóa" />
+        <Button fx:id="btnEdit" text="Cập nhật" onAction="#handleEditEvent"/>
+        <Button fx:id="btnDelete" text="Xóa" onAction="#handleDeleteEvent"/>
     </HBox>
 </VBox>

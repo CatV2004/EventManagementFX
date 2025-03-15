@@ -28,7 +28,7 @@
 
     <HBox alignment="CENTER" spacing="10" styleClass="button-bar">
         <Button fx:id="btnAdd" text="Thêm tổ chức" onAction="#handleAddOrganizer"/>
-        <Button fx:id="btnEdit" text="Sửa" onAction="#handleEditOrganizer"/>
+        <Button fx:id="btnEdit" text="Cập nhật" onAction="#handleEditOrganizer"/>
         <Button fx:id="btnDelete" text="Xóa" onAction="#handleDeleteOrganizer"/>
     </HBox>
 

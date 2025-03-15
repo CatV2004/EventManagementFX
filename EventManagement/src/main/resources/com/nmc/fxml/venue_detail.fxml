@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefWidth="600" prefHeight="400" spacing="15"
+      stylesheets="@../css/venue_detail.css"
+      xmlns="http://javafx.com/javafx/23.0.1"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.nmc.controllers.VenueDetailController">
+
+    <!-- Thiết lập padding đúng chuẩn -->
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Tiêu đề -->
+    <Label text="Chi tiết địa điểm" styleClass="title-label" />
+
+    <!-- Form nhập liệu -->
+    <GridPane hgap="10" vgap="10">
+        <columnConstraints>
+            <ColumnConstraints halignment="RIGHT" minWidth="120" />
+            <ColumnConstraints hgrow="ALWAYS" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="30"/>
+            <RowConstraints minHeight="30"/>
+            <RowConstraints minHeight="30"/>
+            <RowConstraints minHeight="30"/>
+        </rowConstraints>
+
+        <Label text="ID:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+        <TextField fx:id="txtId" styleClass="readonly-textfield" editable="false" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+
+        <Label text="Tên địa điểm:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+        <TextField fx:id="txtName" promptText="Nhập tên địa điểm" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+
+        <Label text="Vị trí:" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+        <TextField fx:id="txtLocation" promptText="Nhập vị trí" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+
+        <Label text="Sức chứa:" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+        <TextField fx:id="txtCapacity" promptText="Nhập sức chứa" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+    </GridPane>
+
+    <!-- Nút thao tác -->
+    <HBox alignment="CENTER" spacing="15">
+        <Button fx:id="btnSave" text="Lưu" onAction="#handleSave" />
+        <Button fx:id="btnCancel" text="Hủy" onAction="#handleCancel" />
+    </HBox>
+
+</VBox>

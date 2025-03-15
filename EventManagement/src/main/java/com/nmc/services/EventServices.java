@@ -83,21 +83,48 @@ public class EventServices {
         }
         return events;
     }
-    
+
     public boolean addEvent(Event event) throws SQLException {
         String sql = "INSERT INTO events (name, description, venue_id, start_time, end_time, organizer_id, max_guests) VALUES (?, ?, ?, ?, ?, ?, ?)";
-        
-        try (Connection conn = JdbcUtils.getConn();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-            
+
+        try (Connection conn = JdbcUtils.getConn(); PreparedStatement stmt = conn.prepareStatement(sql)) {
+
             stmt.setString(1, event.getName());
             stmt.setString(2, event.getDescription());
             stmt.setInt(3, event.getVenueId());
-            stmt.setTimestamp(4, (Timestamp) event.getStartTime());
-            stmt.setTimestamp(5, (Timestamp) event.getEndTime());
+            stmt.setTimestamp(4, new Timestamp(event.getStartTime().getTime()));
+            stmt.setTimestamp(5, new Timestamp(event.getEndTime().getTime()));
             stmt.setInt(6, event.getOrganizerId());
             stmt.setInt(7, event.getMaxGuests());
-            
+
+            return stmt.executeUpdate() > 0;
+        }
+    }
+
+    // Cập nhật sự kiện
+    public boolean updateEvent(Event event) throws SQLException {
+        String sql = "UPDATE events SET name = ?, description = ?, venue_id = ?, start_time = ?, end_time = ?, organizer_id = ?, max_guests = ? WHERE id = ?";
+
+        try (Connection conn = JdbcUtils.getConn(); PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, event.getName());
+            stmt.setString(2, event.getDescription());
+            stmt.setInt(3, event.getVenueId());
+            stmt.setTimestamp(4, new Timestamp(event.getStartTime().getTime()));
+            stmt.setTimestamp(5, new Timestamp(event.getEndTime().getTime()));
+            stmt.setInt(6, event.getOrganizerId());
+            stmt.setInt(7, event.getMaxGuests());
+            stmt.setInt(8, event.getId());
+
+            return stmt.executeUpdate() > 0;
+        }
+    }
+
+    // Xóa sự kiện
+    public boolean deleteEvent(int eventId) throws SQLException {
+        String sql = "DELETE FROM events WHERE id = ?";
+
+        try (Connection conn = JdbcUtils.getConn(); PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setInt(1, eventId);
             return stmt.executeUpdate() > 0;
         }
     }

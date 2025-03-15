@@ -22,7 +22,7 @@
             <Button fx:id = "btnHome" onAction="#handleHome" text="Trang chủ" />
             <Button fx:id = "btnMyEvents" onAction="#handleMyEvents" text="Quản lý sự kiện" />
             <Button fx:id = "btnVenue" onAction="#handleVenue" text="Quản lý địa điểm" />
-            <Button fx:id = "btnOrganizer" onAction="#handleOrganizer" text="Quản lý ban tổ chức" />
+            <Button fx:id = "btnOrganizer" onAction="#handleOrganizer" text="Quản lý khách hàng" />
             <Button onAction="#handleLogout" text="Đăng xuất" />
         </VBox>
     </left>

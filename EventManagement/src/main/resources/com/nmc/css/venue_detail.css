@@ -1,0 +1,75 @@
+/* Tổng thể giao diện */
+.root {
+    -fx-font-family: "Arial";
+    -fx-background-color: #f8f9fa;
+    -fx-padding: 20px;
+}
+
+/* Tiêu đề */
+.title-label {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+    -fx-padding: 10px 0;
+}
+
+/* Nhãn (Label) */
+.label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #34495e;
+}
+
+/* TextField */
+.text-field {
+    -fx-font-size: 14px;
+    -fx-padding: 8px;
+    -fx-border-radius: 5px;
+    -fx-border-color: #ced4da;
+    -fx-background-radius: 5px;
+    -fx-background-color: #ffffff;
+}
+
+.text-field:focused {
+    -fx-border-color: #007bff;
+    -fx-background-color: #ffffff;
+}
+
+/* Hộp chứa GridPane */
+.grid-pane {
+    -fx-padding: 10px 0;
+}
+
+/* Nút bấm */
+.button {
+    -fx-font-size: 14px;
+    -fx-padding: 8px 15px;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-border-width: 1px;
+}
+
+#btnSave {
+    -fx-background-color: #28a745;
+    -fx-text-fill: white;
+    -fx-border-color: #28a745;
+}
+
+#btnSave:hover {
+    -fx-background-color: #218838;
+}
+
+#btnCancel {
+    -fx-background-color: #dc3545;
+    -fx-text-fill: white;
+    -fx-border-color: #dc3545;
+}
+
+#btnCancel:hover {
+    -fx-background-color: #c82333;
+}
+
+.readonly-textfield {
+    -fx-background-color: #e9ecef; /* Màu nền xám nhạt */
+    -fx-border-color: #ced4da;
+    -fx-text-fill: #6c757d;
+}

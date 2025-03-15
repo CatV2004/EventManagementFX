@@ -30,8 +30,8 @@
 
     <HBox alignment="CENTER" spacing="10" styleClass="button-bar">
         <Button fx:id="btnAdd" text="Thêm địa điểm" onAction="#handleAddVenue"/>
-        <Button fx:id="btnEdit" text="Sửa" />
-        <Button fx:id="btnDelete" text="Xóa" />
+        <Button fx:id="btnEdit" text="Cập nhật" onAction="#handleEditVenue"/>
+        <Button fx:id="btnDelete" text="Xóa" onAction="#handleDeleteVenue"/>
     </HBox>
 
 </VBox>
